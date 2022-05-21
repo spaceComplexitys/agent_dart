@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
-
+import 'package:agent_dart/agent_dart.dart';
 import 'package:http/http.dart' as http;
 
 import 'index.dart';
@@ -74,7 +74,7 @@ Future<Map<String, dynamic>> defaultFetch({
       case FetchMethod.options:
       case FetchMethod.trace:
         throw UnimplementedError(
-            "Unsupported http request method: `${method.name.toUpperCase()}`.");
+            "Unsupported http request method: ");
     }
 
     var response = await fr.timeout(

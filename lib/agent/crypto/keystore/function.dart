@@ -1,5 +1,6 @@
 part of 'key_store.dart';
 
+
 // ignore: constant_identifier_names
 const String ALGO_IDENTIFIER = 'aes-128-ctr';
 
@@ -239,7 +240,7 @@ Future<void> _encodePrivateKey(List<dynamic> args) async {
     final psw = args[2] as String;
     final options = args[3] != null ? args[3] as Map<String, dynamic> : null;
     final encrypted = await encrypt(prvKey, psw, options);
-    Isolate.exit(responsePort, encrypted);
+    //Isolate.exit(responsePort, encrypted);
   } catch (e) {
     rethrow;
   }
@@ -273,7 +274,7 @@ Future<void> _decodePrivateKey(List<dynamic> args) async {
     final keyStore = args[1] as Map<String, dynamic>;
     final psw = args[2] as String;
     var decrypted = await decrypt(keyStore, psw);
-    Isolate.exit(responsePort, decrypted);
+   // Isolate.exit(responsePort, decrypted);
   } catch (e) {
     rethrow;
   }
@@ -304,7 +305,7 @@ Future<void> _encodePhrase(List<dynamic> args) async {
     final psw = args[2] as String;
     final options = args[3] != null ? args[3] as Map<String, dynamic> : null;
     final encrypted = await encryptPhrase(prvKey, psw, options);
-    Isolate.exit(responsePort, encrypted);
+   // Isolate.exit(responsePort, encrypted);
   } catch (e) {
     rethrow;
   }
@@ -333,7 +334,7 @@ Future<void> _decodePhrase(List<dynamic> args) async {
     final keyStore = args[1] as Map<String, dynamic>;
     final psw = args[2] as String;
     final decrypted = await decryptPhrase(keyStore, psw);
-    Isolate.exit(responsePort, decrypted);
+   // Isolate.exit(responsePort, decrypted);
   } catch (e) {
     rethrow;
   }

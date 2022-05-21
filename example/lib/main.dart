@@ -33,9 +33,9 @@ class _MyAppState extends State<MyApp> {
 
   void initCounter() {
     _counter = AgentFactory.create(
-      canisterId: "qaa6y-5yaaa-aaaaa-aaafa-cai",
+      canisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
       url:
-          "http://localhost:8000", // For Android emulator, please use 10.0.2.2 as endpoint
+          "http://localhost:8000",//"10.0.2.2", // For Android emulator, please use 10.0.2.2 as endpoint
       idl: idl,
     ).hook(Counter());
   }

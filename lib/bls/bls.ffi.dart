@@ -53,7 +53,7 @@ class FFIBls implements BaseBLS {
       Pointer<Utf8> result = rustBlsInit();
       final res = result.cast<Utf8>().toDartString() == "true";
       freeCString(result);
-      Isolate.exit(responsePort, res);
+      //Isolate.exit(responsePort, res);
     } catch (e) {
       rethrow;
     }
@@ -87,7 +87,7 @@ class FFIBls implements BaseBLS {
     }
   }
 
-  Future<void> _isolateBlsVerify(List<dynamic> args) {
+  Future<void> _isolateBlsVerify(List<dynamic> args) async {
     try {
       SendPort responsePort = args[0];
       final sig = args[1] as String;
@@ -97,7 +97,7 @@ class FFIBls implements BaseBLS {
           sig.toNativeUtf8(), msg.toNativeUtf8(), pk.toNativeUtf8());
       final res = result.cast<Utf8>().toDartString() == "true";
       freeCString(result);
-      Isolate.exit(responsePort, res);
+     /// Isolate.exit(responsePort, res);
     } catch (e) {
       rethrow;
     }
